@@ -1,0 +1,7 @@
+# Fins de ligne identiques partout (Windows, Mac, Linux, Netlify)
+* text=auto eol=lf
+
+# Fichiers binaires : ne jamais les modifier
+*.png binary
+*.jpg binary
+*.keystore binary

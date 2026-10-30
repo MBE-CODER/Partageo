@@ -1,0 +1,26 @@
+# =====================================================================
+# Fichiers à ne JAMAIS envoyer sur GitHub
+# =====================================================================
+
+# 🔐 Clés de signature Android (générées par PWABuilder) — secrets !
+#    Sans elles, impossible de mettre à jour l'appli sur Google Play :
+#    garde-les en lieu sûr (clé USB + cloud privé), mais PAS ici.
+*.keystore
+*.jks
+signing-key-info.txt
+
+# Paquets Android générés (se régénèrent avec PWABuilder)
+*.aab
+*.apk
+*.zip
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Outils
+node_modules/
+.netlify/
+.vscode/
+.idea/

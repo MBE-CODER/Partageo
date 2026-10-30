@@ -1,0 +1,74 @@
+{
+  "id": "./",
+  "name": "Partageo — dépenses partagées",
+  "short_name": "Partageo",
+  "description": "Partage les dépenses entre amis, en famille ou en coloc. Simple, rapide, hors ligne.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5F4F0",
+  "theme_color": "#F5F4F0",
+  "categories": [
+    "finance",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "store/captures/2-depenses.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Les dépenses du groupe, regroupées par jour"
+    },
+    {
+      "src": "store/captures/3-soldes.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Qui doit combien, en un coup d’œil"
+    },
+    {
+      "src": "store/captures/4-rembourser.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Le moins de virements possible, rappel WhatsApp"
+    },
+    {
+      "src": "store/captures/7-partage-qr.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Partage du groupe par QR code, sans serveur"
+    }
+  ]
+}

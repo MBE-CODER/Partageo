@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ma.partageo.app",
+      "sha256_cert_fingerprints": [
+        "REMPLACER:PAR:L:EMPREINTE:SHA256:DONNEE:PAR:GOOGLE:PLAY:CONSOLE"
+      ]
+    }
+  }
+]

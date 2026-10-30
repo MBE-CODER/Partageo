@@ -1,0 +1,16 @@
+# Configuration Netlify (ignorée par les autres hébergeurs)
+
+# Le service worker doit toujours être revérifié, sinon les mises à jour tardent
+/sw.js
+  Cache-Control: no-cache
+
+# Fichier de liaison site ↔ appli Android (Trusted Web Activity)
+/.well-known/assetlinks.json
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
+
+# Sécurité de base
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
