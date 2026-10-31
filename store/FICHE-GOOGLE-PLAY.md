@@ -79,8 +79,8 @@ Simple, rapide et gratuit. Essayez avec le groupe de démonstration intégré !
 | Champ | Valeur |
 |---|---|
 | E-mail de contact | `smart.fun.mad@gmail.com` *(obligatoire, visible publiquement)* |
-| Site web | `https://[ton-domaine]/` |
-| Politique de confidentialité | `https://[ton-domaine]/confidentialite.html` |
+| Site web | `https://partageo-app.netlify.app/` |
+| Politique de confidentialité | `https://partageo-app.netlify.app/confidentialite.html` |
 
 ---
 

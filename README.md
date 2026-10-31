@@ -3,6 +3,8 @@
 Application web de partage des dépenses entre amis, en famille ou en colocation, pensée pour le Maroc.
 Plus rapide et plus agréable que Tricount ou Splitwise.
 
+👉 **Essayer : <https://partageo-app.netlify.app>**
+
 ![Captures de Partageo](store/image-presentation-1024x500.png)
 
 ## Fonctionnalités
