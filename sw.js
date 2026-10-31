@@ -10,7 +10,7 @@
    ⚠️ Quand tu ajoutes ou renommes un fichier, ajoute-le à FILES et
       augmente le numéro de VERSION.
    ===================================================================== */
-const VERSION = 'v6';
+const VERSION = 'v7';
 const CACHE = 'partageo-' + VERSION;
 
 const FILES = [
@@ -18,6 +18,7 @@ const FILES = [
   'index.html',
   'confidentialite.html',
   'style.css',
+  'fonts/schibsted-grotesk.woff',
   'manifest.webmanifest',
   'js/core.js',
   'js/money.js',

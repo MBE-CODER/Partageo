@@ -8,32 +8,33 @@
 
 /* ------------------------------ Thème clair ------------------------------ */
 :root {
-  --bg: #F5F4F0;
-  --surface: #FFFFFF;
-  --surface-2: #EEEDE8;
-  --text: #1E2226;
-  --muted: #5C636B;          /* contraste ≥ 4,5:1 sur --bg et --surface */
-  --border: #E2E0DA;
+  /* Carnet de comptes : papier gris-vert, encre bleue, rouge/vert réservés à « qui doit quoi » */
+  --bg: #E9ECE7;
+  --surface: #FAFBF8;
+  --surface-2: #EEF1EC;
+  --text: #18201C;
+  --muted: #545E58;          /* contraste ≥ 4,5:1 sur --bg et --surface */
+  --border: #D2D8D1;
 
-  --accent: #0E7C6B;         /* boutons principaux (texte blanc : 5:1) */
+  --accent: #2A3D9E;         /* encre bleue (texte blanc : 8:1) */
   --accent-text: #FFFFFF;
-  --accent-soft: #DDF1EC;
-  --accent-soft-text: #0A5E51;
+  --accent-soft: #E0E5F6;
+  --accent-soft-text: #22337F;
 
-  --pos: #1B7A47;  --pos-soft: #DCF2E4;   /* on lui doit */
-  --neg: #B4441F;  --neg-soft: #FBE6DE;   /* il doit */
+  --pos: #1B6B44;  --pos-soft: #DCEFE3;   /* on lui doit */
+  --neg: #AD3A1A;  --neg-soft: #F7E3DA;   /* il doit */
   --danger: #B42318;
-  --wa: #157A45; --wa-text: #FFFFFF; --wa-soft: #DFF5E8; --wa-soft-text: #0F5E34;   /* vert WhatsApp lisible */
+  --wa: #157A45; --wa-text: #FFFFFF; --wa-soft: #DFF2E6; --wa-soft-text: #0F5E34;
 
-  --focus: #2F6FED;
-  --shadow: 0 1px 2px rgba(20, 20, 20, .05), 0 6px 20px rgba(20, 20, 20, .06);
-  --shadow-lg: 0 10px 40px rgba(20, 20, 20, .18);
+  --focus: #2A3D9E;
+  --shadow: 0 0 0 1px var(--border);
+  --shadow-lg: 0 12px 40px rgba(16, 24, 20, .22);
 
-  --radius: 18px;
-  --radius-sm: 12px;
-  --tap: 48px;               /* taille minimale d'une zone tactile */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --tap: 48px;
   --ease: cubic-bezier(.2, .8, .2, 1);
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 
   color-scheme: light;
 }
@@ -41,29 +42,37 @@
 /* ------------------------------ Thème sombre ------------------------------ */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111315;
-    --surface: #1A1D20;
-    --surface-2: #24282C;
-    --text: #ECEEF0;
-    --muted: #A4ABB3;
-    --border: #2E3338;
+    --bg: #121614;
+    --surface: #1A1F1C;
+    --surface-2: #232925;
+    --text: #E9EDEA;
+    --muted: #A2ABA6;
+    --border: #2E3631;
 
-    --accent: #4CC2A9;
-    --accent-text: #0B1F1A;
-    --accent-soft: #163A33;
-    --accent-soft-text: #8FE0CC;
+    --accent: #A9B8F5;
+    --accent-text: #111A40;
+    --accent-soft: #232C52;
+    --accent-soft-text: #C5D0FA;
 
-    --pos: #5FD08E;  --pos-soft: #173525;
-    --neg: #F08C66;  --neg-soft: #3D2219;
+    --pos: #6CCB96;  --pos-soft: #18352A;
+    --neg: #F09272;  --neg-soft: #3E241B;
     --danger: #FF8A80;
     --wa: #25D366; --wa-text: #062814; --wa-soft: #173A27; --wa-soft-text: #7EE2A8;
 
-    --focus: #8AB4FF;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 6px 20px rgba(0, 0, 0, .25);
-    --shadow-lg: 0 10px 40px rgba(0, 0, 0, .5);
+    --focus: #A9B8F5;
+    --shadow: 0 0 0 1px var(--border);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, .5);
 
     color-scheme: dark;
   }
+}
+
+/* ------------------------------ Police ------------------------------ */
+@font-face {
+  font-family: "Schibsted Grotesk";
+  src: url("fonts/schibsted-grotesk.woff") format("woff");
+  font-weight: 400 900;
+  font-display: swap;
 }
 
 /* ------------------------------ Base ------------------------------ */
@@ -824,4 +833,69 @@ dialog.sheet::backdrop { background: rgba(10, 12, 14, .45); animation: fade .2s 
 .topbar-title .truncate { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.2; }
 /* Le toast passe au-dessus du bouton « + » quand il est affiché */
 body:has(.fab) .toast { bottom: calc(160px + env(safe-area-inset-bottom)); }
-.transfer-who strong { white-space: nowrap; }
+.transfer-who strong { white-space: nowrap; display: inline-block; }
+
+/* =====================================================================
+   Refonte « carnet de comptes »
+   Les listes deviennent des feuilles lignées ; le total est un ticket.
+   ===================================================================== */
+/* Chiffres proportionnels : dans cette police, le mode tabulaire élargit la virgule */
+* { font-variant-numeric: normal !important; }
+h1, h2, h3, .brand { letter-spacing: -.025em; }
+
+/* Feuilles : une surface, des lignes séparées par un trait fin */
+.expense-list, .bal-list, .group-list[role="list"], .history-list {
+  gap: 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.expense-item, .bal-row, .group-card, .history-item {
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  animation: none;
+}
+.expense-list > li + li, .bal-list > li + li, .group-list > li + li, .history-list > li + li {
+  border-top: 1px solid var(--border);
+}
+.expense-item:active, .group-card:active { transform: none; background: var(--surface-2); }
+.group-card:hover { transform: none; }
+.expense-icon { width: 32px; height: 32px; background: none; font-size: 1.35rem; }
+.expense-amount { font-weight: 800; }
+.day-title { margin: 22px 2px 8px; font-size: .9rem; color: var(--text); }
+
+/* Ticket du total : bord inférieur dentelé, pas de dégradé */
+.summary-card {
+  position: relative;
+  margin: 8px 0 4px;
+  padding: 18px 18px 26px;
+  background: var(--surface);
+  background-image: none;
+  box-shadow: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  --tooth: 8px;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--tooth)) 100%;
+          mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--tooth)) 100%;
+}
+.summary-card::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+  background: var(--g, var(--accent));
+}
+.summary-value { font-size: 2.4rem; font-weight: 800; letter-spacing: -.035em; line-height: 1.05; margin-top: 4px; }
+.summary-side { align-self: flex-end; white-space: nowrap; }
+
+/* Soldes et remboursements : traits plutôt qu'ombres */
+.transfer-card { box-shadow: var(--shadow); animation: none; }
+.my-status { box-shadow: none; }
+.bal-amount, .transfer-amount { font-weight: 800; }
+.quick { box-shadow: none; border-width: 1px; }
+.quick:focus-within { box-shadow: 0 0 0 1px var(--accent); }
+.empty-hero { box-shadow: var(--shadow); }
+.tab.active { background: none; color: var(--accent); box-shadow: inset 0 3px 0 var(--accent); border-radius: 0; }
+.fab { border-radius: 18px; box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent); }
+.transfer-card { min-width: 0; }
+.transfer-who { flex: 1; }
+.transfer-actions .btn { min-width: 0; }
+.transfer-card { grid-template-columns: minmax(0, 1fr); }
