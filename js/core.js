@@ -63,10 +63,10 @@ window.Partageo = window.Partageo || {};
   P.CATEGORIES = [
     { id: 'resto', label: 'Restauration', icon: '🍽️' },
     { id: 'courses', label: 'Courses', icon: '🛒' },
-    { id: 'transport', label: 'Transport', icon: '🚕' },
+    { id: 'transport', label: 'Transport', icon: '🚗' },
     { id: 'logement', label: 'Logement', icon: '🏠' },
     { id: 'hebergement', label: 'Hébergement', icon: '🏨' },
-    { id: 'loisirs', label: 'Loisirs', icon: '🎉' },
+    { id: 'loisirs', label: 'Loisirs', icon: '🎟️' },
     { id: 'cadeaux', label: 'Cadeaux', icon: '🎁' },
     { id: 'autre', label: 'Autre', icon: '📦' }
   ];

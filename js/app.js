@@ -256,9 +256,9 @@
               '</div>' +
               '<div class="transfer-actions">' +
                 reminderButton(g, tr) +
-                '<button type="button" class="btn btn-soft" data-action="mark-paid"' +
+                '<button type="button" class="btn btn-soft" data-action="mark-paid" aria-label="Marquer comme remboursé"' +
                   ' data-from="' + tr.fromId + '" data-to="' + tr.toId + '" data-amount="' + tr.amount + '">' +
-                  '✓ Marquer comme remboursé</button>' +
+                  '<span aria-hidden="true">✓</span> Remboursé</button>' +
               '</div>' +
             '</li>';
         }).join('') + '</ul>';

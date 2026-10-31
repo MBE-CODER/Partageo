@@ -207,8 +207,8 @@ ul[role="list"] { list-style: none; margin: 0; padding: 0; }
 .members-strip {
   display: flex; gap: 8px;
   overflow-x: auto; scrollbar-width: none;
-  padding: 4px 0 12px;
-  margin: 0 -16px; padding-left: 16px; padding-right: 16px;
+  padding: 4px 0 4px;
+  margin: 0 -16px 12px; padding-left: 16px; padding-right: 16px;
 }
 .members-strip::-webkit-scrollbar { display: none; }
 .chip {
@@ -481,7 +481,8 @@ ul[role="list"] { list-style: none; margin: 0; padding: 0; }
   animation: rise .3s var(--ease) backwards;
 }
 .transfer-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.transfer-who { display: flex; align-items: center; gap: 8px; min-width: 0; flex-wrap: wrap; font-size: 1.05rem; }
+.transfer-who { display: block; min-width: 0; font-size: 1.05rem; line-height: 1.35; }
+.transfer-arrow { margin: 0 6px; }
 .transfer-arrow { color: var(--muted); font-weight: 700; }
 .transfer-amount { font-weight: 800; font-size: 1.15rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
@@ -673,7 +674,7 @@ dialog.sheet::backdrop { background: rgba(10, 12, 14, .45); animation: fade .2s 
 .btn-wa { background: var(--wa); color: var(--wa-text); box-shadow: var(--shadow); }
 .btn-wa-soft { background: var(--wa-soft); color: var(--wa-soft-text); }
 .recap-btn { margin: 4px 0 14px; }
-.transfer-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.transfer-actions { display: flex; gap: 8px; }
 .transfer-actions .btn { flex: 1 1 auto; }
 .transfer-actions .btn-wa-soft { flex: 0 1 auto; }
 
@@ -816,3 +817,11 @@ dialog.sheet::backdrop { background: rgba(10, 12, 14, .45); animation: fade .2s 
 .legal img.brand-logo { padding: 4px; }
 .footer-links { text-align: center; margin: 28px 0 8px; font-size: .85rem; }
 .footer-links a { color: var(--muted); }
+
+/* ------------------------------ Correctifs lisibilité ------------------------------ */
+/* Titre du groupe : deux lignes possibles plutôt qu'une coupure */
+.topbar-group .icon-btn { width: 40px; height: 40px; font-size: 1.25rem; }
+.topbar-title .truncate { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.2; }
+/* Le toast passe au-dessus du bouton « + » quand il est affiché */
+body:has(.fab) .toast { bottom: calc(160px + env(safe-area-inset-bottom)); }
+.transfer-who strong { white-space: nowrap; }

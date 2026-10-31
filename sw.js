@@ -10,7 +10,7 @@
    ⚠️ Quand tu ajoutes ou renommes un fichier, ajoute-le à FILES et
       augmente le numéro de VERSION.
    ===================================================================== */
-const VERSION = 'v5';
+const VERSION = 'v6';
 const CACHE = 'partageo-' + VERSION;
 
 const FILES = [
