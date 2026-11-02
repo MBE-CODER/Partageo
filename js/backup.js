@@ -44,8 +44,8 @@
           'fais une sauvegarde de temps en temps 💾</p>' +
           '<p class="small muted" id="b-last">' + esc(lastExportText()) + '</p>' +
           '<div class="backup-actions">' +
-            '<button type="button" class="btn btn-primary btn-block" data-act="export">⬇️ Exporter mes données</button>' +
-            '<button type="button" class="btn btn-soft btn-block" data-act="pick">⬆️ Importer une sauvegarde</button>' +
+            '<button type="button" class="btn btn-primary btn-block" data-act="export">' + P.icon('download') + ' Exporter mes données</button>' +
+            '<button type="button" class="btn btn-soft btn-block" data-act="pick">' + P.icon('upload') + ' Importer une sauvegarde</button>' +
           '</div>' +
           '<input type="file" id="b-file" accept=".json,application/json" hidden>' +
           '<div id="b-result" aria-live="polite"></div>' +

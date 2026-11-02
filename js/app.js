@@ -22,9 +22,9 @@
     { v: '#6A9F4E', n: 'Olive' }, { v: '#6B7A8F', n: 'Ardoise' }
   ];
   const TABS = [
-    { id: 'depenses', label: 'Dépenses', icon: '🧾' },
-    { id: 'soldes', label: 'Soldes', icon: '⚖️' },
-    { id: 'rembourser', label: 'Rembourser', icon: '🤝' }
+    { id: 'depenses', label: 'Dépenses', icon: 'receipt' },
+    { id: 'soldes', label: 'Soldes', icon: 'scale' },
+    { id: 'rembourser', label: 'Rembourser', icon: 'handshake' }
   ];
 
   const fmtWeight = P.fmtNum; // 0.5 → "0,5"
@@ -73,13 +73,13 @@
       ? '<h1 class="page-title">Mes groupes</h1>' +
         '<ul class="group-list" role="list">' + groups.map(groupCard).join('') + '</ul>' +
         '<button type="button" class="btn btn-soft btn-block" data-action="new-group">＋ Nouveau groupe</button>' +
-        '<button type="button" class="btn btn-link btn-block" data-action="demo">✨ Ajouter le groupe de démonstration</button>'
+        '<button type="button" class="btn btn-link btn-block" data-action="demo">' + P.icon('sparkles') + ' Ajouter le groupe de démonstration</button>'
       : homeEmpty());
 
     app.innerHTML =
       '<header class="topbar">' +
         '<span class="brand"><span class="brand-logo" aria-hidden="true">🤝</span>Partageo</span>' +
-        '<button type="button" class="icon-btn topbar-end" data-action="backup" aria-label="Sauvegarde : exporter ou importer">💾</button>' +
+        '<button type="button" class="icon-btn topbar-end" data-action="backup" aria-label="Sauvegarde : exporter ou importer">' + P.icon('save') + '</button>' +
       '</header>' +
       '<main class="page" id="main">' + content +
         '<p class="footer-links"><a href="confidentialite.html">Confidentialité</a></p>' +
@@ -95,7 +95,7 @@
         'Chacun sait qui doit quoi, en quelques secondes.</p>' +
         '<div class="hero-actions">' +
           '<button type="button" class="btn btn-primary btn-lg" data-action="new-group">Créer mon premier groupe</button>' +
-          '<button type="button" class="btn btn-soft" data-action="demo">✨ Essayer avec un exemple</button>' +
+          '<button type="button" class="btn btn-soft" data-action="demo">' + P.icon('sparkles') + ' Essayer avec un exemple</button>' +
         '</div>' +
         '<p class="small muted">🔒 Tes données restent sur ton téléphone.</p>' +
       '</section>';
@@ -132,18 +132,18 @@
     document.title = g.name + ' · Partageo';
     app.innerHTML =
       '<header class="topbar topbar-group" style="--g:' + g.color + '">' +
-        '<a class="icon-btn" href="#/" aria-label="Retour à mes groupes">‹</a>' +
+        '<a class="icon-btn" href="#/" aria-label="Retour à mes groupes">' + P.icon('back') + '</a>' +
         '<h1 class="topbar-title"><span class="topbar-emoji" aria-hidden="true">' + esc(g.emoji) + '</span>' +
           '<span class="truncate">' + esc(g.name) + '</span></h1>' +
-        '<button type="button" class="icon-btn icon-btn-share" data-action="share-group" aria-label="Partager le groupe">📤</button>' +
-        '<button type="button" class="icon-btn" data-action="edit-group" aria-label="Modifier le groupe">✎</button>' +
+        '<button type="button" class="icon-btn icon-btn-share" data-action="share-group" aria-label="Partager le groupe">' + P.icon('share') + '</button>' +
+        '<button type="button" class="icon-btn" data-action="edit-group" aria-label="Modifier le groupe">' + P.icon('edit') + '</button>' +
       '</header>' +
       '<main class="page with-tabbar" id="main">' +
         membersStrip(g) +
         tabContent(g, tab) +
       '</main>' +
       '<button type="button" class="fab" data-action="add-expense" aria-label="Ajouter une dépense">' +
-        '<span aria-hidden="true">+</span></button>' +
+        P.icon('plus') + '</button>' +
       tabbar(g, tab);
   }
 
@@ -258,7 +258,7 @@
                 reminderButton(g, tr) +
                 '<button type="button" class="btn btn-soft" data-action="mark-paid" aria-label="Marquer comme remboursé"' +
                   ' data-from="' + tr.fromId + '" data-to="' + tr.toId + '" data-amount="' + tr.amount + '">' +
-                  '<span aria-hidden="true">✓</span> Remboursé</button>' +
+                  '' + P.icon('check') + ' Remboursé</button>' +
               '</div>' +
             '</li>';
         }).join('') + '</ul>';
@@ -266,7 +266,7 @@
 
     const recap =
       '<a class="btn btn-wa btn-block recap-btn" href="' + esc(P.share.recapLink(g)) + '" target="_blank" rel="noopener">' +
-        '<span aria-hidden="true">💬</span> Envoyer le récap sur WhatsApp</a>';
+        '' + P.icon('message') + ' Envoyer le récap sur WhatsApp</a>';
 
     return recap + html + settlementsHistory(g);
   }
@@ -279,7 +279,7 @@
     return '<a class="btn btn-wa-soft" href="' + esc(P.share.reminderLink(g, tr)) + '" target="_blank" rel="noopener"' +
       ' aria-label="Envoyer un rappel WhatsApp à ' + esc(debtor ? debtor.name : '') + '"' +
       (hasPhone ? '' : ' title="Pas de numéro enregistré : WhatsApp te demandera de choisir le contact"') + '>' +
-      '<span aria-hidden="true">💬</span> Rappel</a>';
+      '' + P.icon('message') + ' Rappel</a>';
   }
 
   /** Historique des remboursements déjà faits (le plus récent en haut). */
@@ -288,14 +288,14 @@
     const items = g.settlements.slice().reverse().map(function (s) {
       return '' +
         '<li class="history-item">' +
-          '<span class="history-icon" aria-hidden="true">✓</span>' +
+          '<span class="history-icon">' + P.icon('check') + '</span>' +
           '<span class="expense-info">' +
             '<span class="expense-title">' + esc(nameOf(g, s.fromId)) + ' → ' + esc(nameOf(g, s.toId)) + '</span>' +
             '<span class="expense-meta">' + P.formatDay(s.date) + '</span>' +
           '</span>' +
           '<span class="expense-amount">' + P.money.format(s.amount) + '</span>' +
           '<button type="button" class="icon-btn icon-btn-sm" data-action="remove-settlement" data-id="' + s.id + '"' +
-            ' aria-label="Supprimer ce remboursement">✕</button>' +
+            ' aria-label="Supprimer ce remboursement">' + P.icon('close') + '</button>' +
         '</li>';
     }).join('');
     return '<h2 class="day-title">Remboursements effectués</h2><ul class="history-list" role="list">' + items + '</ul>';
@@ -343,10 +343,10 @@
     return '' +
       '<form class="quick" id="quick-form" autocomplete="off">' +
         '<label for="quick-input" class="sr-only">Écris ta dépense en une phrase</label>' +
-        '<span class="quick-icon" aria-hidden="true">✨</span>' +
+        '<span class="quick-icon">' + P.icon('sparkles') + '</span>' +
         '<input id="quick-input" class="quick-input" type="text" enterkeyhint="go" spellcheck="false"' +
           ' placeholder="Ex. : ' + esc(first) + ' 450 resto pour tous" aria-describedby="quick-preview">' +
-        '<button type="submit" class="quick-go" aria-label="Préparer la dépense">→</button>' +
+        '<button type="submit" class="quick-go" aria-label="Préparer la dépense">' + P.icon('arrow') + '</button>' +
       '</form>' +
       '<p class="quick-preview" id="quick-preview" aria-live="polite"></p>';
   }
@@ -454,7 +454,7 @@
       const active = t.id === current;
       return '<a class="tab' + (active ? ' active' : '') + '" href="#/g/' + g.id + '/' + t.id + '"' +
         (active ? ' aria-current="page"' : '') + '>' +
-        '<span class="tab-icon" aria-hidden="true">' + t.icon + '</span>' + t.label + '</a>';
+        '<span class="tab-icon">' + P.icon(t.icon) + '</span>' + t.label + '</a>';
     }).join('') + '</nav>';
   }
 
@@ -475,7 +475,7 @@
             '<output class="step-val" data-weight="' + m.weight + '">' + fmtWeight(m.weight) + '</output>' +
             '<button type="button" class="step" data-act="inc" aria-label="Plus de parts">+</button>' +
           '</div>' +
-          '<button type="button" class="icon-btn icon-btn-sm" data-act="remove-member" aria-label="Retirer ce participant">✕</button>' +
+          '<button type="button" class="icon-btn icon-btn-sm" data-act="remove-member" aria-label="Retirer ce participant">' + P.icon('close') + '</button>' +
         '</div>' +
         '<div class="member-extra">' +
           '<input class="input input-sm member-phone" type="tel" inputmode="tel" autocomplete="off"' +
@@ -697,7 +697,7 @@
 
     'add-expense': function () {
       const g = P.store.group(parseRoute().id);
-      if (!g.members.length) return P.ui.toast('Ajoute d\'abord des participants avec ✎');
+      if (!g.members.length) return P.ui.toast('Ajoute d\'abord des participants (bouton Modifier)');
       P.expenseForm.open(g);
     },
 

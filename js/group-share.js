@@ -46,16 +46,16 @@
           '</strong> sur leur téléphone. Rien ne passe par un serveur, tout est dans le lien.</p>' +
           (isLocal
             ? '<p class="warn-box">⚠️ Partageo est ouverte depuis un fichier de ton ordinateur : ce lien ne s\'ouvrira pas ' +
-              'sur un autre appareil. Ton ami peut quand même le coller dans 💾 → « Ouvrir un lien de partage ». ' +
+              'sur un autre appareil. Ton ami peut quand même le coller dans Sauvegarde → « Ouvrir un lien de partage ». ' +
               'Pour un vrai lien, héberge l\'appli (ex. Netlify).</p>'
             : '') +
           '<div class="qr-box" id="sh-qr"><p class="hint">Préparation du lien…</p></div>' +
           '<label class="check"><input type="checkbox" id="sh-phones"> Inclure les numéros WhatsApp des participants</label>' +
           '<div class="share-actions">' +
             '<a class="btn btn-wa btn-block" id="sh-wa" target="_blank" rel="noopener" href="#">' +
-              '<span aria-hidden="true">💬</span> Envoyer le lien sur WhatsApp</a>' +
-            '<button type="button" class="btn btn-soft btn-block" data-act="copy">📋 Copier le lien</button>' +
-            (canNativeShare ? '<button type="button" class="btn btn-soft btn-block" data-act="native">📤 Autres applis…</button>' : '') +
+              '' + P.icon('message') + ' Envoyer le lien sur WhatsApp</a>' +
+            '<button type="button" class="btn btn-soft btn-block" data-act="copy">' + P.icon('copy') + ' Copier le lien</button>' +
+            (canNativeShare ? '<button type="button" class="btn btn-soft btn-block" data-act="native">' + P.icon('share') + ' Autres applis…</button>' : '') +
           '</div>' +
           '<label class="sr-only" for="sh-link">Lien de partage</label>' +
           '<input id="sh-link" class="input input-sm share-link" type="text" readonly>' +
@@ -158,7 +158,7 @@
     document.title = 'Groupe partagé · Partageo';
     app.innerHTML =
       '<header class="topbar">' +
-        '<a class="icon-btn" href="#/" aria-label="Annuler et revenir à mes groupes">‹</a>' +
+        '<a class="icon-btn" href="#/" aria-label="Annuler et revenir à mes groupes">' + P.icon('back') + '</a>' +
         '<span class="brand"><span class="brand-logo" aria-hidden="true">🤝</span>Partageo</span>' +
       '</header>' +
       '<main class="page" id="main"><section class="empty"><p>Ouverture du groupe partagé…</p></section></main>';

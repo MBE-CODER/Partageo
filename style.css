@@ -899,3 +899,27 @@ h1, h2, h3, .brand { letter-spacing: -.025em; }
 .transfer-who { flex: 1; }
 .transfer-actions .btn { min-width: 0; }
 .transfer-card { grid-template-columns: minmax(0, 1fr); }
+
+/* =====================================================================
+   Icônes SVG (js/icons.js) — remplacent les emoji dans l'interface
+   Les emoji restent réservés au contenu : catégories et groupes.
+   ===================================================================== */
+.ic { width: 1.25em; height: 1.25em; flex: none; display: block; }
+.icon-btn .ic { width: 24px; height: 24px; }
+.topbar-group .icon-btn { color: var(--text); }
+.topbar-group .icon-btn .ic { width: 22px; height: 22px; }
+.icon-btn-sm .ic { width: 18px; height: 18px; }
+.tab-icon .ic { width: 24px; height: 24px; }
+.tab.active .tab-icon .ic { stroke-width: 2.4; }
+.fab .ic { width: 28px; height: 28px; stroke-width: 2.4; }
+.quick-icon { color: var(--accent); }
+.quick-icon .ic { width: 20px; height: 20px; }
+.quick-go .ic { width: 22px; height: 22px; margin: auto; }
+.history-icon .ic { width: 16px; height: 16px; stroke-width: 3; }
+.btn .ic { width: 20px; height: 20px; }
+
+/* Respiration : la bande des participants ne colle plus à la saisie rapide */
+.members-strip { margin-bottom: 12px !important; }
+
+/* Le bouton « + » ne masque plus le dernier élément en bas de liste */
+.page.with-tabbar { padding-bottom: calc(176px + env(safe-area-inset-bottom)); }
