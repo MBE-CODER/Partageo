@@ -10,7 +10,7 @@
    ⚠️ Quand tu ajoutes ou renommes un fichier, ajoute-le à FILES et
       augmente le numéro de VERSION.
    ===================================================================== */
-const VERSION = 'v7';
+const VERSION = 'v8';
 const CACHE = 'partageo-' + VERSION;
 
 const FILES = [
@@ -30,6 +30,7 @@ const FILES = [
   'js/qr.js',
   'js/link.js',
   'js/group-share.js',
+  'js/icons.js',
   'js/ui.js',
   'js/expense-form.js',
   'js/backup.js',

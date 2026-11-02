@@ -100,7 +100,7 @@
         '<div class="sheet-handle" aria-hidden="true"></div>' +
         '<header class="sheet-head">' +
           '<h2 id="dialog-title">' + esc(o.title) + '</h2>' +
-          '<button type="button" class="icon-btn" data-close aria-label="Fermer">✕</button>' +
+          '<button type="button" class="icon-btn" data-close aria-label="Fermer">' + P.icon('close') + '</button>' +
         '</header>' +
         '<div class="sheet-body">' + o.html + '</div>' +
       '</div>';
